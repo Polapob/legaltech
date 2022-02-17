@@ -33,21 +33,21 @@ const CostResultModal = ({ isOpen, handleClose, selectValue }: Props) => {
         494 * B * C * D;
       //console.log(selectValue.complexity);
       const dateString = new Date().toISOString().split("T")[0];
-     // console.log(dateString);
+      // console.log(dateString)
       const response = await apiClient.get(
         `/Stat-ReferenceRate/v2/DAILY_REF_RATE/?start_period=${dateString}&end_period=${dateString}`,
         {
           headers: {
-              "X-IBM-Client-Id" : process.env.REACT_APP_BOT_CLIENT_ID,
-              "accept": "application/json"
+            "X-IBM-Client-Id": process.env.REACT_APP_BOT_CLIENT_ID || "",
+            accept: "application/json",
           },
         }
       );
-      const {result} = await response.data;
+      const { result } = await response.data;
       const usdThb = parseFloat(result.data.data_detail[0].rate);
       const convertToThb = Math.round(cost * usdThb);
-      setCostResult(convertToThb  );
-     // return cost.toString();
+      setCostResult(convertToThb);
+      // return cost.toString();
     };
     calculateCost();
   }, [selectValue]);
