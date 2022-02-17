@@ -1,5 +1,3 @@
-import { MouseEventHandler } from "react";
-
 interface Props {
   itemName: string;
   handleClose: Function;
