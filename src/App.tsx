@@ -8,7 +8,7 @@ import TimeCalculatorPage from "./components/pages/TimeCalculatorPage";
 import CostCalculatorPage from "./components/pages/CostCalculatorPage";
 
 function App() {
-  console.log(process.env.REACT_APP_BOT_CLIENT_ID);
+  //console.log(process.env.REACT_APP_BOT_CLIENT_ID);
   return (
     <BrowserRouter>
       <Routes>
