@@ -1,4 +1,4 @@
-import { MouseEventHandler, useRef, useEffect, MouseEvent, EventHandler } from "react";
+import { MouseEventHandler, useRef, useEffect } from "react";
 
 interface Props {
   isOpen: boolean;
