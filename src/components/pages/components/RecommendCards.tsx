@@ -17,7 +17,6 @@ const RecommendCards = ({ searchQuery }: Props) => {
       }
       return false;
     });
-    // console.log(mockData);
     setCardData(filteredData);
   }, [searchQuery]);
   useEffect(() => {
@@ -29,12 +28,10 @@ const RecommendCards = ({ searchQuery }: Props) => {
         cardData.length > 0 &&
         cardData.map((eachData: MockData, idx) => {
           if (eachData.ProductName !== null && idx < numberShow) {
-              console.log(eachData);
+            console.log(eachData);
             return (
               <div key={eachData.เลขที่คำขอ}>
-                <RecommendCard
-                 patentData = {eachData}
-                />
+                <RecommendCard patentData={eachData} />
               </div>
             );
           }

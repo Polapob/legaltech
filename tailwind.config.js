@@ -3,7 +3,11 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+       Kanit: ['Kanit', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }

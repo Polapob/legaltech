@@ -6,7 +6,7 @@ interface Props {
 
 const SearchBar = ({ handleSearchQuery }: Props) => {
   return (
-    <div className="flex justify-start items-center box-border border-2 border-violet-400 mb-12">
+    <div className="flex justify-start items-center box-border border-2 border-violet-400 mb-12 relative">
       <input
         className="focus:outline-0 text-[20px] w-[300px] placeholder:text-[16px] placeholder:absolute placeholder:top-4 p-2"
         placeholder="Search by keywords or Patent Field"
