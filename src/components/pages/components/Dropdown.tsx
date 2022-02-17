@@ -1,5 +1,4 @@
 import {
-  Fragment,
   MouseEventHandler,
   useState,
   MouseEvent,
@@ -52,7 +51,7 @@ const Dropdown = ({
 
   // console.log(selectData);
   return (
-    <Fragment>
+    <div className="relative">
       <div className="flex flex-row justify-start items-center font-Kanit space-x-2 mb-4 mt-2">
         <div className="text-[20px]">{titleName}</div>
         <svg
@@ -92,11 +91,11 @@ const Dropdown = ({
       </div>
       {isClick && (
         <div
-          className="box-border border-2 border-red w-[350px]"
+          className="box-border border-2 border-red w-[350px] max-h-[300px] overflow-y-scroll absolute z-50 bg-white shadow-lg"
           ref={dropDownRef}
         >
           {chooseData.map((val, idx) => {
-              console.log(val);
+             // console.log(val);
             return (
               <div key={idx} className="w-[350px]">
                 <DropdownItem
@@ -111,7 +110,7 @@ const Dropdown = ({
           })}
         </div>
       )}
-    </Fragment>
+    </div>
   );
 };
 export default Dropdown;
