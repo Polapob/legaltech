@@ -32,21 +32,30 @@ const CostResultModal = ({ isOpen, handleClose, selectValue }: Props) => {
         691 * A * D +
         494 * B * C * D;
       //console.log(selectValue.complexity);
-      const dateString = new Date().toISOString().split("T")[0];
+     // const timeStamp = new Date().getTime();
+      //const yesterdayTimeStamp = timeStamp - 24 * 60 * 60 * 1000;
+      const yesterdayDate = new Date();
+      const dateString = yesterdayDate.toISOString().split("T")[0];
       // console.log(dateString)
-      const response = await apiClient.get(
-        `/Stat-ReferenceRate/v2/DAILY_REF_RATE/?start_period=${dateString}&end_period=${dateString}`,
-        {
-          headers: {
-            "X-IBM-Client-Id": process.env.REACT_APP_BOT_CLIENT_ID || "",
-            accept: "application/json",
-          },
-        }
-      );
-      const { result } = await response.data;
-      const usdThb = parseFloat(result.data.data_detail[0].rate);
-      const convertToThb = Math.round(cost * usdThb);
-      setCostResult(convertToThb);
+      try {
+        const response = await apiClient.get(
+          `/Stat-ReferenceRate/v2/DAILY_REF_RATE/?start_period=${dateString}&end_period=${dateString}`,
+          {
+            headers: {
+              "X-IBM-Client-Id": process.env.REACT_APP_BOT_CLIENT_ID || "",
+              accept: "application/json",
+            },
+          }
+        );
+        const { result } = await response.data;
+        const usdThb = parseFloat(result.data.data_detail[0].rate);
+        const convertToThb = Math.round(cost * usdThb);
+        setCostResult(convertToThb);
+      } catch (err) {
+        setCostResult(cost * 32.147);
+        //console.log(err);
+      }
+
       // return cost.toString();
     };
     calculateCost();

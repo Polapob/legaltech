@@ -91,7 +91,7 @@ const Dropdown = ({
       </div>
       {isClick && (
         <div
-          className="box-border border-2 border-red w-[350px] max-h-[300px] overflow-y-scroll absolute z-50 bg-white shadow-lg"
+          className="box-border border-2 border-red w-[350px] max-h-[300px] absolute z-50 bg-white shadow-lg overflow-y-scroll overflow-x-hidden"
           ref={dropDownRef}
         >
           {chooseData.map((val, idx) => {
